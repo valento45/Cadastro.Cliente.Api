@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastro.Clientes.Service",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastro.Clientes.Domain", "Cadastro.Cliente.Domain\Cadastro.Clientes.Domain.csproj", "{B0AEB8E9-9D2A-4E4E-9BCA-4E1DEF61B504}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadastro.Clientes.Tests", "Cadastro.Clientes.Tests\Cadastro.Clientes.Tests.csproj", "{1C8919ED-27E5-43C0-854F-6CDA0F404EF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B0AEB8E9-9D2A-4E4E-9BCA-4E1DEF61B504}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0AEB8E9-9D2A-4E4E-9BCA-4E1DEF61B504}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0AEB8E9-9D2A-4E4E-9BCA-4E1DEF61B504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C8919ED-27E5-43C0-854F-6CDA0F404EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C8919ED-27E5-43C0-854F-6CDA0F404EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C8919ED-27E5-43C0-854F-6CDA0F404EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C8919ED-27E5-43C0-854F-6CDA0F404EF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

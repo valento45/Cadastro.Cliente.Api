@@ -21,5 +21,24 @@ namespace Cadastro.Clientes.Domain.Domains
         {
                 
         }
+
+        public override string ToString()
+        {
+            StringBuilder str = new StringBuilder();
+            str.AppendLine(Nome);
+            str.AppendLine(CPFCNPJ);
+            str.AppendLine(Telefone);
+            str.AppendLine(Celular);
+
+            return str.ToString();
+        }
+
+
+        public bool PossuiCamposPreenchidos() =>
+            !string.IsNullOrEmpty(Nome) ||
+            !string.IsNullOrEmpty(CPFCNPJ) ||
+            !string.IsNullOrEmpty(Telefone) ||
+            !string.IsNullOrEmpty(Celular);
+            
     }
 }

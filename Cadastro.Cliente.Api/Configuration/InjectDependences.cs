@@ -2,6 +2,7 @@
 using Cadastro.Clientes.Repository.Repositorys.Interfaces;
 using Cadastro.Clientes.Service.Services;
 using Cadastro.Clientes.Service.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System.Data;
@@ -16,7 +17,11 @@ namespace Cadastro.Clientes.Api.Configuration
         {
             services.AddSqlConnection(configuration);
             services.AddRepositorys();
-            services.AddServices();                
+            services.AddServices();
+
+
+
+          
         }
 
         private static void AddSqlConnection(this IServiceCollection services, IConfiguration configuration)
