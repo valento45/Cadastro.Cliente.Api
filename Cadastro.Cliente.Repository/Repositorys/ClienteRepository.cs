@@ -5,12 +5,14 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Cadastro.Clientes.Repository.Repositorys
 {
+    [ExcludeFromCodeCoverage]
     public class ClienteRepository : RepositoryBase, IClienteRepository
 
     {
@@ -53,9 +55,22 @@ namespace Cadastro.Clientes.Repository.Repositorys
         public async Task<bool> Alterar(Cliente cliente)
         {
             string query = "UPDATE cliente_tb SET Nome = @Nome, CPFCNPJ = @CPFCNPJ, Telefone = @Telefone, Celular = @Celular, CEP = @CEP," +
-                " Logradouro = @Logradouro, Numero = @Numero, Cidade = @Cidade, UF = @UF, Complemento = @Complemento";
+                " Logradouro = @Logradouro, Numero = @Numero, Cidade = @Cidade, UF = @UF, Complemento = @Complemento WHERE IdCliente = @IdCliente";
 
-            return await base.ExecuteAsync(query, cliente);
+            return await base.ExecuteAsync(query, new
+            {
+                IdCliente = cliente.IdCliente,
+                Nome = cliente.Nome,
+                CPFCNPJ = cliente.CPFCNPJ,
+                Telefone = cliente.Telefone,
+                Celular = cliente.Celular,
+                CEP = cliente.Endereco.CEP,
+                Logradouro = cliente.Endereco.Logradouro,
+                Numero = cliente.Endereco.Numero,
+                Cidade = cliente.Endereco.Cidade,
+                UF = cliente.Endereco.UF,
+                Complemento = cliente.Endereco.Complemento
+            });
         }
 
         public async Task<bool> Excluir(int idCliente)

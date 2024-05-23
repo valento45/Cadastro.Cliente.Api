@@ -20,3 +20,5 @@ CREATE DATABASE bd_cliente
 		UF varchar(10),
 		Complemento varchar(200)
 	);
+	
+	select * from cliente_tb where IdCliente = 73

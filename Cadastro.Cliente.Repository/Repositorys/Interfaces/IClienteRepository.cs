@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Cadastro.Clientes.Repository.Repositorys.Interfaces
-{
+{   
     public interface IClienteRepository
     {
 

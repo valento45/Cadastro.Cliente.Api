@@ -8,7 +8,10 @@ namespace Cadastro.Clientes.Domain.Domains.Bases
 {
     public class Endereco
     {
-
+        public Endereco()
+        {
+            
+        }
         public string CEP { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }

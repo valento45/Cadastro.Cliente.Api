@@ -1,11 +1,13 @@
 ﻿using Cadastro.Clientes.Domain.Domains;
 using Cadastro.Clientes.Service.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Cadastro.Clientes.Api.Controllers
 {
     [ApiController]
     [Route("[controller]/api")]
+    [ExcludeFromCodeCoverage]
     public class ClienteController : Controller
     {
         private readonly IClienteService _clienteService;

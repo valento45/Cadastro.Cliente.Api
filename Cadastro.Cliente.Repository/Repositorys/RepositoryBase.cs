@@ -2,12 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Cadastro.Clientes.Repository.Repositorys
 {
+    [ExcludeFromCodeCoverage]
     public class RepositoryBase
     {
         protected readonly IDbConnection _dbConnection;

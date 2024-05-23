@@ -7,9 +7,11 @@ using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System.Data;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Cadastro.Clientes.Api.Configuration
 {
+    [ExcludeFromCodeCoverage]
     public static class InjectDependences
     {
 
