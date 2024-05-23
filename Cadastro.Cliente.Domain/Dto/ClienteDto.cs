@@ -16,12 +16,12 @@ namespace Cadastro.Clientes.Domain.Dto
         public string Telefone { get; set; }
         public string Celular { get; set; }
         public string Email { get; set; }
-        public string CEP { private get; set; }
-        public string Logradouro { private get; set; }
-        public string Numero { private get; set; }
-        public string Cidade { private get; set; }
-        public string UF { private get; set; }
-        public string Complemento { private get; set; }
+        public string CEP {  get; set; }
+        public string Logradouro {  get; set; }
+        public string Numero {  get; set; }
+        public string Cidade {  get; set; }
+        public string UF {  get; set; }
+        public string Complemento {  get; set; }
 
 
         public Cliente ToCliente()

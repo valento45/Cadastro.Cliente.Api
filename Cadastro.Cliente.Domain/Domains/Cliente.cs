@@ -18,23 +18,8 @@ namespace Cadastro.Clientes.Domain.Domains
         public string Email { get; set; }
 
 
-        private Endereco _endereco;
-        public Endereco Endereco
-        {
-            get
-            {
-                if (_endereco == null)
-                {
-                    _endereco = new Endereco();                   
-                }                
-                
-                return _endereco;
-            }
-            set
-            {
-                _endereco = value;
-            }
-        }
+
+        public Endereco Endereco { get; set; }
 
         public Cliente()
         {

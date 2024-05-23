@@ -1,4 +1,5 @@
 ﻿using Cadastro.Clientes.Domain.Domains;
+using Cadastro.Clientes.Domain.Dto;
 using Cadastro.Clientes.Domain.Responses;
 using Cadastro.Clientes.Repository.Repositorys.Interfaces;
 using Cadastro.Clientes.Service.Services;
@@ -63,6 +64,8 @@ namespace Cadastro.Clientes.Tests.Services.Fixtures
 
             return cliente;
         }
+
+     
 
         public IEnumerable<Cliente> ObterAllClientes()
         {

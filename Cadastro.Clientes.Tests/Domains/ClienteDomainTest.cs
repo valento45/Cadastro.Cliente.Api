@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -35,6 +36,52 @@ namespace Cadastro.Clientes.Tests.Domains
 
 
             Assert.NotNull(cliente);
+            Assert.NotEmpty(cliente.Nome);
+            Assert.NotEmpty(cliente.CPFCNPJ);
+            Assert.NotEmpty(cliente.Telefone);
+            Assert.NotEmpty(cliente.Celular);
+
+            Assert.NotNull(cliente.Endereco);
+            Assert.NotEmpty(cliente.Endereco.CEP);
+            Assert.NotEmpty(cliente.Endereco.Logradouro);
+            Assert.NotEmpty(cliente.Endereco.Numero);
+            Assert.NotEmpty(cliente.Endereco.Cidade);
+            Assert.NotEmpty(cliente.Endereco.UF);
+            Assert.NotEmpty(cliente.Endereco.Complemento);
+        }
+
+
+
+        [Theory(DisplayName = "TestaDomainsClienteDto")]
+        [Trait("ClienteDomain", "Domain")]
+        [InlineData()]
+
+        public async Task TestaDomainsClienteDto()
+        {
+
+            
+            var clienteDto = _clienteDomainFixture.ObterClienteDto();
+
+            var cliente = clienteDto.ToCliente();
+
+
+
+            Assert.NotNull(clienteDto);
+            Assert.NotEqual(0, clienteDto.IdCliente);
+            Assert.NotEmpty(clienteDto.Nome);
+            Assert.NotEmpty(clienteDto.CPFCNPJ);
+            Assert.NotEmpty(clienteDto.Telefone);
+            Assert.NotEmpty(clienteDto.Celular);
+     
+            Assert.NotEmpty(clienteDto.CEP);
+            Assert.NotEmpty(clienteDto.Logradouro);
+            Assert.NotEmpty(clienteDto.Numero);
+            Assert.NotEmpty(clienteDto.Cidade);
+            Assert.NotEmpty(clienteDto.UF);
+            Assert.NotEmpty(clienteDto.Complemento);
+
+            Assert.NotNull(cliente);
+            Assert.NotEqual(0, cliente.IdCliente);
             Assert.NotEmpty(cliente.Nome);
             Assert.NotEmpty(cliente.CPFCNPJ);
             Assert.NotEmpty(cliente.Telefone);
