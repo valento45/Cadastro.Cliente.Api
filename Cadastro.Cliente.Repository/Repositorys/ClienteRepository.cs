@@ -105,13 +105,13 @@ namespace Cadastro.Clientes.Repository.Repositorys
                     query += $" AND UPPER(Nome) like '%{cliente.Nome.ToUpper()}%'";
 
                 if (!string.IsNullOrEmpty(cliente.Telefone))
-                    query += $" AND Telefone = '{cliente.Telefone}'";
+                    query += $" AND Telefone like '%{cliente.Telefone}%'";
 
                 if (!string.IsNullOrEmpty(cliente.Celular))
-                    query += $" AND Celular = '{cliente.Celular}'";
+                    query += $" AND Celular like '%{cliente.Celular}%'";
 
                 if (!string.IsNullOrEmpty(cliente.Email))
-                    query += $" AND UPPER(Email) = '{cliente.Email.ToUpper()}'";
+                    query += $" AND UPPER(Email) like '%{cliente.Email.ToUpper()}%'";
             }
 
 
@@ -148,13 +148,13 @@ namespace Cadastro.Clientes.Repository.Repositorys
                     query += $" AND UPPER(Nome) like '%{cliente.Nome.ToUpper()}%'";
 
                 if (!string.IsNullOrEmpty(cliente.Telefone))
-                    query += $" AND Telefone = '{cliente.Telefone}'";
+                    query += $" AND Telefone like '%{cliente.Telefone}%'";
 
                 if (!string.IsNullOrEmpty(cliente.Celular))
-                    query += $" AND Celular = '{cliente.Celular}'";
+                    query += $" AND Celular like '%{cliente.Celular}%'";
 
                 if (!string.IsNullOrEmpty(cliente.Email))
-                    query += $" AND UPPER(Email) = '{cliente.Email.ToUpper()}'";
+                    query += $" AND UPPER(Email) like '%{cliente.Email.ToUpper()}%'";
             }
 
 

@@ -41,6 +41,12 @@ namespace Cadastro.Clientes.Api.Controllers
             return Ok(await _clienteService.Excluir(idCliente));
         }
 
+        [HttpDelete]
+        [Route("ExcluirClientePorEmail")]
+        public async Task<IActionResult> ExcluirClientePorEmail(string email)
+        {
+            return Ok(await _clienteService.Excluir(email));
+        }
 
 
         [HttpGet]
