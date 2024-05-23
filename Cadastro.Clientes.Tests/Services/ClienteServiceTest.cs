@@ -1,4 +1,6 @@
 ﻿using Cadastro.Clientes.Domain.Domains;
+using Cadastro.Clientes.Domain.Responses;
+using Cadastro.Clientes.Service.Services;
 using Cadastro.Clientes.Tests.Services.Fixtures;
 using System;
 using System.Collections.Generic;
@@ -107,6 +109,27 @@ namespace Cadastro.Clientes.Tests.Services
         }
 
 
+        [Theory(DisplayName = "ClienteServiceExcluirPorEmailTest")]
+        [Trait("ClienteService", "ClienteService")]
+        [InlineData(true)]
+        [InlineData(false)]
+        public async Task ClienteServiceExcluirPorEmailTest(bool operationSucesso)
+        {
+            ///Arrange
+            var clienteRandom = _clienteServiceFixture.ObterCliente();
+            var serviceCliente = _clienteServiceFixture.ObterService(clienteRandom, operationSucesso);
+
+
+            ///Action
+            var messageResponse = await serviceCliente.Excluir(clienteRandom.Email);
+
+
+            ///Assert
+            Assert.NotNull(messageResponse);
+            Assert.NotEmpty(messageResponse.Message);
+            Assert.NotEmpty(messageResponse.StatusCode.ToString());
+        }
+
         [Theory(DisplayName = "ClienteServiceInstanceTest")]
         [Trait("ClienteService", "ClienteService")]
         [InlineData(true)]
@@ -196,6 +219,56 @@ namespace Cadastro.Clientes.Tests.Services
             ///Assert
             Assert.NotNull(listaClientes);
             Assert.True(listaClientes.Any());
+
+        }
+
+
+        [Theory(DisplayName = "ClienteServiceInstance")]
+        [Trait("ClienteService", "ClienteService")]
+        [InlineData()]
+        public async Task ClienteServiceInstance()
+        {
+            ///Arrange
+            var clienteRepository= _clienteServiceFixture.ObterRepository();
+
+
+            ///Action
+            var serviceCliente = new ClienteService(clienteRepository);
+            var maintHttpService = new MainHttpService();
+
+
+            ///Assert
+            Assert.NotNull(serviceCliente);
+            Assert.NotNull(maintHttpService);
+            Assert.NotEmpty(serviceCliente.ToString());
+        }
+
+        [Theory(DisplayName = "ClienteServiceMessageResponseTest")]
+        [Trait("ClienteService", "ClienteService")]
+        [InlineData(true, "Sucesso", 200)]
+        [InlineData(false, "Erro API", 500)]
+        public async Task ClienteServiceMessageResponseTest(bool operationSucesso, string message, int statusCode)
+        {
+            ///Arrange
+            var messageResponse = new MessageResponse() ;
+
+
+
+            ///Action
+            messageResponse.InformarMessage(message);
+            messageResponse.InformarSucesso(operationSucesso);
+            messageResponse.InformarStatusCode(statusCode);
+
+
+            ///Assert
+            Assert.NotNull(messageResponse);
+            Assert.NotEmpty(messageResponse.Message);
+            Assert.True(messageResponse.StatusCode > 0);
+
+            if (operationSucesso)
+                Assert.True(messageResponse.Sucesso);
+            else
+                Assert.False(messageResponse.Sucesso);
 
         }
 

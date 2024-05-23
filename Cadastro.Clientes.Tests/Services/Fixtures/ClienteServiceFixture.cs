@@ -17,12 +17,19 @@ namespace Cadastro.Clientes.Tests.Services.Fixtures
     public class ClienteServiceFixture
     {
 
+        public IClienteRepository ObterRepository()
+        {
+            var clienteRepository = new Mock<IClienteRepository>();
+            return clienteRepository.Object;
+
+        }
         public ClienteService ObterService(Cliente cliente, bool sucessoOperation)
         {
             var clienteRepository = new Mock<IClienteRepository>();
             clienteRepository.Setup(x => x.Incluir(cliente)).Returns(ClienteRetorno(cliente));
             clienteRepository.Setup(x => x.Alterar(cliente)).Returns(Task.FromResult(sucessoOperation));
             clienteRepository.Setup(x => x.Excluir(cliente.IdCliente)).Returns(Task.FromResult(sucessoOperation));
+            clienteRepository.Setup(x => x.ExcluirPorEmail(cliente.Email)).Returns(Task.FromResult(sucessoOperation));
             clienteRepository.Setup(x => x.GetAll(0)).Returns(Task.FromResult(ObterAllClientes()));
             clienteRepository.Setup(x => x.GetByCliente(cliente)).Returns(Task.FromResult(ObterAllClientes()));
 
