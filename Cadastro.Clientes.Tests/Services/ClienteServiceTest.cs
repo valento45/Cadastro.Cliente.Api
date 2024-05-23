@@ -43,6 +43,7 @@ namespace Cadastro.Clientes.Tests.Services
             Assert.NotEmpty(clietneIncluido.CPFCNPJ);
             Assert.NotEmpty(clietneIncluido.Telefone);
             Assert.NotEmpty(clietneIncluido.Celular);
+            Assert.NotEmpty(clietneIncluido.Email);
 
             Assert.NotNull(clietneIncluido.Endereco);
             Assert.NotEmpty(clietneIncluido.Endereco.CEP);
@@ -120,6 +121,7 @@ namespace Cadastro.Clientes.Tests.Services
             clienteRandom.CPFCNPJ = rand.Next(0, 100).ToString();
             clienteRandom.Telefone = rand.Next(0, 100).ToString();
             clienteRandom.Celular = rand.Next(0, 100).ToString();
+            clienteRandom.Email = rand.Next(0, 100).ToString();
 
 
 
@@ -140,6 +142,7 @@ namespace Cadastro.Clientes.Tests.Services
             Assert.NotEmpty(clienteRandom.CPFCNPJ);
             Assert.NotEmpty(clienteRandom.Telefone);
             Assert.NotEmpty(clienteRandom.Celular);
+            Assert.NotEmpty(clienteRandom.Email);
 
             Assert.NotNull(clienteRandom.Endereco);
             Assert.NotEmpty(clienteRandom.Endereco.CEP);

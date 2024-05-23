@@ -15,6 +15,7 @@ namespace Cadastro.Clientes.Domain.Domains
         public string CPFCNPJ { get; set; }
         public string Telefone { get; set; }
         public string Celular { get; set; }
+        public string Email { get; set; }
         public Endereco Endereco { get; set; }
 
         public Cliente()

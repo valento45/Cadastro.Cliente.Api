@@ -27,8 +27,7 @@ namespace Cadastro.Clientes.Tests.Services.Fixtures
             clienteRepository.Setup(x => x.GetByCliente(cliente)).Returns(Task.FromResult(ObterAllClientes()));
 
 
-            var service = new Mock<ClienteService>(clienteRepository.Object);
-            //service.Setup(x => x.Excluir(cliente.IdCliente)).Returns(ObterMessageResponse(sucessoOperation));
+            var service = new Mock<ClienteService>(clienteRepository.Object);            
 
             return service.Object;
         }
@@ -43,6 +42,7 @@ namespace Cadastro.Clientes.Tests.Services.Fixtures
             cliente.CPFCNPJ = rand.Next(0, 100).ToString();
             cliente.Telefone = rand.Next(0, 100).ToString();
             cliente.Celular = rand.Next(0, 100).ToString();
+            cliente.Email = rand.Next(0, 100).ToString();
             cliente.Endereco = new Domain.Domains.Bases.Endereco();
             cliente.Endereco.CEP = rand.Next(0, 100).ToString();
             cliente.Endereco.Logradouro = rand.Next(0, 100).ToString();

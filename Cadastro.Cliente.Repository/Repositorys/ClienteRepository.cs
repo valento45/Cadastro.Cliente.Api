@@ -22,8 +22,8 @@ namespace Cadastro.Clientes.Repository.Repositorys
         }
         public async Task<Cliente> Incluir(Cliente cliente)
         {
-            string query = "INSERT INTO cliente_tb (Nome, CPFCNPJ, Telefone, Celular, CEP, Logradouro, " +
-                "Numero, Cidade, UF, Complemento) values (@Nome, @CPFCNPJ, @Telefone, @Celular, @CEP, @Logradouro, @Numero, @Cidade, " +
+            string query = "INSERT INTO cliente_tb (Nome, CPFCNPJ, Telefone, Celular, Email, CEP, Logradouro, " +
+                "Numero, Cidade, UF, Complemento) values (@Nome, @CPFCNPJ, @Telefone, @Celular, @Email, @CEP, @Logradouro, @Numero, @Cidade, " +
                 "@UF, @Complemento) returning IdCliente";
 
             NpgsqlCommand cmd = new NpgsqlCommand(query);
@@ -31,6 +31,7 @@ namespace Cadastro.Clientes.Repository.Repositorys
             cmd.Parameters.AddWithValue(@"CPFCNPJ", cliente?.CPFCNPJ ?? "");
             cmd.Parameters.AddWithValue(@"Telefone", cliente?.Telefone ?? "");
             cmd.Parameters.AddWithValue(@"Celular", cliente?.Celular ?? "");
+            cmd.Parameters.AddWithValue(@"Email", cliente?.Email ?? "");
             cmd.Parameters.AddWithValue(@"CEP", cliente?.Endereco?.CEP ?? "");
             cmd.Parameters.AddWithValue(@"Logradouro", cliente?.Endereco?.Logradouro ?? "");
             cmd.Parameters.AddWithValue(@"Numero", cliente?.Endereco?.Numero ?? "");
@@ -54,7 +55,7 @@ namespace Cadastro.Clientes.Repository.Repositorys
 
         public async Task<bool> Alterar(Cliente cliente)
         {
-            string query = "UPDATE cliente_tb SET Nome = @Nome, CPFCNPJ = @CPFCNPJ, Telefone = @Telefone, Celular = @Celular, CEP = @CEP," +
+            string query = "UPDATE cliente_tb SET Nome = @Nome, CPFCNPJ = @CPFCNPJ, Telefone = @Telefone, Celular = @Celular, Email = @Email, CEP = @CEP," +
                 " Logradouro = @Logradouro, Numero = @Numero, Cidade = @Cidade, UF = @UF, Complemento = @Complemento WHERE IdCliente = @IdCliente";
 
             return await base.ExecuteAsync(query, new
@@ -64,6 +65,7 @@ namespace Cadastro.Clientes.Repository.Repositorys
                 CPFCNPJ = cliente.CPFCNPJ,
                 Telefone = cliente.Telefone,
                 Celular = cliente.Celular,
+                Email = cliente.Email,
                 CEP = cliente.Endereco.CEP,
                 Logradouro = cliente.Endereco.Logradouro,
                 Numero = cliente.Endereco.Numero,

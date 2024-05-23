@@ -13,6 +13,7 @@ CREATE DATABASE bd_cliente
 		CPFCNPJ varchar,
 		Telefone varchar(30),
 		Celular varchar(30),
+		Email varchar(200),
 		CEP varchar(15),
 		Logradouro varchar(300),
 		Numero varchar(10),
