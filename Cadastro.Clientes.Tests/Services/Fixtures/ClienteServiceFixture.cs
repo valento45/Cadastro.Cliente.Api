@@ -32,6 +32,9 @@ namespace Cadastro.Clientes.Tests.Services.Fixtures
             clienteRepository.Setup(x => x.ExcluirPorEmail(cliente.Email)).Returns(Task.FromResult(sucessoOperation));
             clienteRepository.Setup(x => x.GetAll(0)).Returns(Task.FromResult(ObterAllClientes()));
             clienteRepository.Setup(x => x.GetByCliente(cliente)).Returns(Task.FromResult(ObterAllClientes()));
+            clienteRepository.Setup(x => x.ExisteCliente(cliente)).Returns(Task.FromResult(sucessoOperation));
+            clienteRepository.Setup(x => x.ExisteCliente(cliente.IdCliente)).Returns(Task.FromResult(sucessoOperation));
+            
 
 
             var service = new Mock<ClienteService>(clienteRepository.Object);            
