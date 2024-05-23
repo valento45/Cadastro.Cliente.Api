@@ -6,6 +6,7 @@ CREATE DATABASE bd_cliente
     IS_TEMPLATE = False;
 	
 
+
 	create table cliente_tb(
 		
 		IdCliente serial not null primary key,
@@ -21,5 +22,7 @@ CREATE DATABASE bd_cliente
 		UF varchar(10),
 		Complemento varchar(200)
 	);
+	
+	
 	
 	select * from cliente_tb where IdCliente = 73

@@ -13,9 +13,11 @@ namespace Cadastro.Clientes.Repository.Repositorys.Interfaces
         Task<Cliente> Incluir(Cliente cliente);
         Task<bool> Alterar(Cliente cliente);
         Task<bool> Excluir(int idCliente);
+        Task<bool> ExcluirPorEmail(string email);
         Task<IEnumerable<Cliente>> GetAll(int limit = 0);
         Task<IEnumerable<Cliente>> GetByCliente(Cliente cliente);
 
         Task<bool> ExisteCliente(int idCliente);
+        Task<bool> ExisteCliente(Cliente cliente);
     }
 }

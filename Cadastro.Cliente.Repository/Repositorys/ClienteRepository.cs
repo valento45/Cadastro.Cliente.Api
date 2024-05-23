@@ -104,11 +104,14 @@ namespace Cadastro.Clientes.Repository.Repositorys
                 if (!string.IsNullOrEmpty(cliente.Nome))
                     query += $" AND UPPER(Nome) like '%{cliente.Nome.ToUpper()}%'";
 
-                if(!string.IsNullOrEmpty(cliente.Telefone))
+                if (!string.IsNullOrEmpty(cliente.Telefone))
                     query += $" AND Telefone = '{cliente.Telefone}'";
 
                 if (!string.IsNullOrEmpty(cliente.Celular))
                     query += $" AND Celular = '{cliente.Celular}'";
+
+                if (!string.IsNullOrEmpty(cliente.Email))
+                    query += $" AND UPPER(Email) = '{cliente.Email.ToUpper()}'";
             }
 
 
@@ -119,6 +122,41 @@ namespace Cadastro.Clientes.Repository.Repositorys
         public async Task<bool> ExisteCliente(int idCliente)
         {
             string query = "select * from cliente_tb where IdCliente = " + idCliente;
+
+            var result = await base.QueryAsync<Cliente>(query);
+            return result?.Any() ?? false;
+        }
+
+        public async Task<bool> ExcluirPorEmail(string email)
+        {
+            string query = $"DELETE FROM cliente_tb where UPPER(Email) = '{email.ToUpper()}'";
+
+            return await base.ExecuteAsync(query);
+        }
+
+        public async Task<bool> ExisteCliente(Cliente cliente)
+        {
+            string query = "select * from cliente_tb where 1=1";
+
+            ///Aplica Filtros
+            if (cliente.PossuiCamposPreenchidos())
+            {
+                if (cliente.IdCliente > 0)
+                    query += $" AND IdCliente = {cliente.IdCliente}";
+
+                if (!string.IsNullOrEmpty(cliente.Nome))
+                    query += $" AND UPPER(Nome) like '%{cliente.Nome.ToUpper()}%'";
+
+                if (!string.IsNullOrEmpty(cliente.Telefone))
+                    query += $" AND Telefone = '{cliente.Telefone}'";
+
+                if (!string.IsNullOrEmpty(cliente.Celular))
+                    query += $" AND Celular = '{cliente.Celular}'";
+
+                if (!string.IsNullOrEmpty(cliente.Email))
+                    query += $" AND UPPER(Email) = '{cliente.Email.ToUpper()}'";
+            }
+
 
             var result = await base.QueryAsync<Cliente>(query);
             return result?.Any() ?? false;

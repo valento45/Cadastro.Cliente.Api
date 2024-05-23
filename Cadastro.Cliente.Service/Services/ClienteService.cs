@@ -79,6 +79,30 @@ namespace Cadastro.Clientes.Service.Services
             return await _clienteRepository.GetByCliente(cliente);
         }
 
-       
+        public async Task<MessageResponse> Excluir(string email)
+        {
+            MessageResponse messageResponse = new MessageResponse();
+            Cliente cliente = new Cliente { Email = email };
+
+            if (!await _clienteRepository.ExisteCliente(cliente))
+            {
+                base.InformarMessageOperation("Não existe nenhum cliente com o Id informado para exclusão.",
+                    (int)HttpStatusCode.BadRequest, false, ref messageResponse);
+                return messageResponse;
+            }
+
+
+            var result = await _clienteRepository.ExcluirPorEmail(email);
+
+            if (result)
+                base.InformarMessageOperation("Cliente excluído com sucesso",
+                   (int)HttpStatusCode.OK, result, ref messageResponse);
+
+            else
+                base.InformarMessageOperation("Não foi possível excluir o cliente, tente mais tarde.",
+                   (int)HttpStatusCode.InternalServerError, result, ref messageResponse);
+
+            return messageResponse;
+        }
     }
 }
