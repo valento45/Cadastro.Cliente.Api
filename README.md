@@ -26,7 +26,8 @@ Tecnologias, framworks e práticas
 
 
 # Documentação Swagger
-![image](https://github.com/valento45/Cadastro.Cliente.Api/assets/54119744/c4918a2b-814c-4771-a2d0-6cf264f56cd8)
+![image](https://github.com/valento45/Cadastro.Cliente.Api/assets/54119744/4f256824-114d-4b2e-9402-2938f1a830b2)
+
 
 
 
