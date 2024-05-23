@@ -33,7 +33,8 @@ Tecnologias, framworks e práticas
 
 # Cobertura de Testes Unitários (xUnit)
 ![image](https://github.com/valento45/Cadastro.Cliente.Api/assets/54119744/596c7e28-8800-4ff2-81b8-4a8f11df9950)
-![image](https://github.com/valento45/Cadastro.Cliente.Api/assets/54119744/1e1983a9-7b85-42a0-9ad3-2c20fc65c8f7)
+![image](https://github.com/valento45/Cadastro.Cliente.Api/assets/54119744/ce2ff541-c181-4993-841b-87a773d0cade)
+
 
 
 
