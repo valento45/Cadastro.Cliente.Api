@@ -27,16 +27,16 @@ namespace Cadastro.Clientes.Repository.Repositorys
                 "@UF, @Complemento) returning IdCliente";
 
             NpgsqlCommand cmd = new NpgsqlCommand(query);
-            cmd.Parameters.AddWithValue(@"Nome", cliente.Nome);
-            cmd.Parameters.AddWithValue(@"CPFCNPJ", cliente.CPFCNPJ);
-            cmd.Parameters.AddWithValue(@"Telefone", cliente.Telefone);
-            cmd.Parameters.AddWithValue(@"Celular", cliente.Celular);
-            cmd.Parameters.AddWithValue(@"CEP", cliente.Endereco.CEP);
-            cmd.Parameters.AddWithValue(@"Logradouro", cliente.Endereco.Logradouro);
-            cmd.Parameters.AddWithValue(@"Numero", cliente.Endereco.Numero);
-            cmd.Parameters.AddWithValue(@"Cidade", cliente.Endereco.Cidade);
-            cmd.Parameters.AddWithValue(@"UF", cliente.Endereco.UF);
-            cmd.Parameters.AddWithValue(@"Complemento", cliente.Endereco.Complemento);
+            cmd.Parameters.AddWithValue(@"Nome", cliente?.Nome ?? "");
+            cmd.Parameters.AddWithValue(@"CPFCNPJ", cliente?.CPFCNPJ ?? "");
+            cmd.Parameters.AddWithValue(@"Telefone", cliente?.Telefone ?? "");
+            cmd.Parameters.AddWithValue(@"Celular", cliente?.Celular ?? "");
+            cmd.Parameters.AddWithValue(@"CEP", cliente?.Endereco?.CEP ?? "");
+            cmd.Parameters.AddWithValue(@"Logradouro", cliente?.Endereco?.Logradouro ?? "");
+            cmd.Parameters.AddWithValue(@"Numero", cliente?.Endereco?.Numero ?? "");
+            cmd.Parameters.AddWithValue(@"Cidade", cliente?.Endereco?.Cidade ?? "");
+            cmd.Parameters.AddWithValue(@"UF", cliente?.Endereco?.UF ?? "");
+            cmd.Parameters.AddWithValue(@"Complemento", cliente?.Endereco?.Complemento ?? "");
 
 
             var result = await base.ExecuteScalarAsync(cmd);
