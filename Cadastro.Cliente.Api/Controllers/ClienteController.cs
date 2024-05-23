@@ -34,7 +34,7 @@ namespace Cadastro.Clientes.Api.Controllers
         }
 
 
-        [HttpPost]
+        [HttpDelete]
         [Route("ExcluirCliente")]
         public async Task<IActionResult> ExcluirCliente(int idCliente)
         {
