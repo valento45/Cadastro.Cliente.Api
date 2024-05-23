@@ -1,4 +1,5 @@
 ﻿using Cadastro.Clientes.Domain.Domains;
+using Cadastro.Clientes.Domain.Dto;
 using Cadastro.Clientes.Repository.Repositorys.Interfaces;
 using Dapper;
 using Npgsql;
@@ -88,7 +89,8 @@ namespace Cadastro.Clientes.Repository.Repositorys
             if (limit > 0)
                 query += $" LIMIT {limit}";
 
-            return await base.QueryAsync<Cliente>(query);
+            var result = await base.QueryAsync<ClienteDto>(query);
+            return result.Select(x => x.ToCliente());
         }
 
         public async Task<IEnumerable<Cliente>> GetByCliente(Cliente cliente)
@@ -116,7 +118,8 @@ namespace Cadastro.Clientes.Repository.Repositorys
 
 
 
-            return await base.QueryAsync<Cliente>(query);
+            var result = await base.QueryAsync<ClienteDto>(query);
+            return result.Select(x => x.ToCliente());
         }
 
         public async Task<bool> ExisteCliente(int idCliente)
@@ -161,5 +164,8 @@ namespace Cadastro.Clientes.Repository.Repositorys
             var result = await base.QueryAsync<Cliente>(query);
             return result?.Any() ?? false;
         }
+
+        public string GetMessageRepository() => base.GetMessage();
+        public bool OperationSucessoRepository() => base.OperationSucess();
     }
 }

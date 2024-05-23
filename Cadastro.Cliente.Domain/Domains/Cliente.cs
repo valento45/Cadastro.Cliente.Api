@@ -16,11 +16,29 @@ namespace Cadastro.Clientes.Domain.Domains
         public string Telefone { get; set; }
         public string Celular { get; set; }
         public string Email { get; set; }
-        public Endereco Endereco { get; set; }
+
+
+        private Endereco _endereco;
+        public Endereco Endereco
+        {
+            get
+            {
+                if (_endereco == null)
+                {
+                    _endereco = new Endereco();                   
+                }                
+                
+                return _endereco;
+            }
+            set
+            {
+                _endereco = value;
+            }
+        }
 
         public Cliente()
         {
-                
+
         }
 
         public override string ToString()
@@ -40,6 +58,6 @@ namespace Cadastro.Clientes.Domain.Domains
             !string.IsNullOrEmpty(CPFCNPJ) ||
             !string.IsNullOrEmpty(Telefone) ||
             !string.IsNullOrEmpty(Celular);
-            
+
     }
 }

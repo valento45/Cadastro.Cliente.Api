@@ -187,6 +187,7 @@ namespace Cadastro.Clientes.Repository.Repositorys
 
 
         public string GetMessage() => Message;
+        public bool OperationSucess() => OperationSuccess;
 
     }
 }

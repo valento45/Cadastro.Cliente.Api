@@ -36,7 +36,7 @@ namespace Cadastro.Clientes.Service.Services
                    (int)HttpStatusCode.OK, result, ref messageResponse);
             
             else            
-                base.InformarMessageOperation("Não foi possível atualizar os dados do cliente, tente mais tarde.",
+                base.InformarMessageOperation($"Não foi possível atualizar os dados do cliente, tente mais tarde. Mensagem: {_clienteRepository.GetMessageRepository()}",
                    (int)HttpStatusCode.InternalServerError, result, ref messageResponse);
             
 
@@ -63,7 +63,7 @@ namespace Cadastro.Clientes.Service.Services
                    (int)HttpStatusCode.OK, result, ref messageResponse);               
             
             else            
-                base.InformarMessageOperation("Não foi possível excluir o cliente, tente mais tarde.",
+                base.InformarMessageOperation($"Não foi possível excluir o cliente, tente mais tarde. Mensagem: {_clienteRepository.GetMessageRepository()}",
                    (int)HttpStatusCode.InternalServerError, result, ref messageResponse);
             
             return messageResponse;
@@ -99,7 +99,7 @@ namespace Cadastro.Clientes.Service.Services
                    (int)HttpStatusCode.OK, result, ref messageResponse);
 
             else
-                base.InformarMessageOperation("Não foi possível excluir o cliente, tente mais tarde.",
+                base.InformarMessageOperation($"Não foi possível excluir o cliente, tente mais tarde. Mensagem: {_clienteRepository.GetMessageRepository()}",
                    (int)HttpStatusCode.InternalServerError, result, ref messageResponse);
 
             return messageResponse;

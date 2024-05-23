@@ -19,5 +19,7 @@ namespace Cadastro.Clientes.Repository.Repositorys.Interfaces
 
         Task<bool> ExisteCliente(int idCliente);
         Task<bool> ExisteCliente(Cliente cliente);
+        string GetMessageRepository();
+        bool OperationSucessoRepository();
     }
 }
