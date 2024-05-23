@@ -100,7 +100,7 @@ namespace Cadastro.Clientes.Repository.Repositorys
                     query += $" AND IdCliente = {cliente.IdCliente}";
 
                 if (!string.IsNullOrEmpty(cliente.Nome))
-                    query += $" AND Nome like '%{cliente.Nome}%'";
+                    query += $" AND UPPER(Nome) like '%{cliente.Nome.ToUpper()}%'";
 
                 if(!string.IsNullOrEmpty(cliente.Telefone))
                     query += $" AND Telefone = '{cliente.Telefone}'";
