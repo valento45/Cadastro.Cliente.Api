@@ -12,6 +12,23 @@ API Para CRUD de Cliente ( Cadastro, Atualização, Exclusão e Consultas )
 - Pronto! sua API está configurada e integrada com a base de dados.
 
 
-Agora é só rodar a aplicação e se divertir. =D
 
-# Agradecimentos
+# Insights
+
+Tecnologias, framworks e práticas
+- .NET 6
+- PostgreSQL
+- Dapper
+- DDD
+- Clean code
+- TDD (xUnit)
+- SOLID
+
+
+Cobertura de Testes Unitários (xUnit)
+![image](https://github.com/valento45/Cadastro.Cliente.Api/assets/54119744/596c7e28-8800-4ff2-81b8-4a8f11df9950)
+![image](https://github.com/valento45/Cadastro.Cliente.Api/assets/54119744/1e1983a9-7b85-42a0-9ad3-2c20fc65c8f7)
+
+
+
+
